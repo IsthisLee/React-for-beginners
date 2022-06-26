@@ -4,5 +4,8 @@
   "singleQuote": true,
   "trailingComma": "none",
   "semi": true,
-  "parser": "flow"
+  "parser": "flow",
+  "arrowParens": "always",
+  "bracketSpacing": true,
+  "jsxBracketSameLine": true
 }
