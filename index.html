@@ -1,39 +1,35 @@
 <!DOCTYPE html>
 <html>
-    <body>
-        <div id="root"></div>
-    </body>
+<body>
+<div id='root'></div>
+</body>
 <!--React-->
-    <script crossorigin src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+<script crossorigin src='https://unpkg.com/react@17.0.2/umd/react.production.min.js'></script>
 <!--React-Dom-->
-    <script crossorigin src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+<script crossorigin src='https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js'></script>
 <!--Babel-->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script type="text/babel">
-        const root = document.getElementById("root")
-        const Title = () => (
-            <h3 id="title" onMouseEnter={() => console.log('mouse entered')}>
-            Hello. i'm a title
-            </h3>
-        );
-        const Button = () => (
-            <button
-                style={{
-                backgroundColor: "tomato",
-                }}
-                onClick={() => console.log("im clicked")}
-            >
-                Click me
-            </button>
-        );
+<script src='https://unpkg.com/@babel/standalone/babel.min.js'></script>
+<script type='text/babel'>
+    const root = document.getElementById('root');
 
-        const Container = () => (
-            <div>
-                <Title/>
-                <Button/>
-            </div>
-        );
+    let counter = 0;
 
-        ReactDOM.render(<Container/>, root);
-    </script>
+    function countUp() {
+        counter = counter + 1;
+        render();
+    }
+
+    function render() {
+        ReactDOM.render(<Container />, root);
+    }
+
+    const Container = () => (
+        <div>
+            <h3>Total clicks: {counter}</h3>
+            <button id='btn' onClick={countUp}>Click me</button>
+        </div>
+    );
+
+    render();
+</script>
 </html>
