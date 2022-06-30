@@ -25,6 +25,7 @@
         };
         return (
             <div>
+                <h3>Minutes to Hours</h3>
                 <div>
                     <label htmlFor="minutes">Minutes</label>
                     <input
@@ -53,8 +54,43 @@
         );
     }
     function KmToMiles () {
+        const [amount, setAmount] = React.useState(0);
+        const [isFlip, setIsFlip] = React.useState(false);
+
+        const onChange = (event) => {
+            setAmount(event.target.value);
+        }
+        const reset = () => setAmount(0);
+        const onFlip = () => {
+            setIsFlip((current) => !current);
+            reset();
+        }
         return (
-            <h3>KM 2 Miles</h3>
+            <div>
+                <h3>KM to Miles</h3>
+                <div>
+                    <label htmlFor='km'>KM</label>
+                    <input
+                        id='km'
+                        type='number'
+                        value={isFlip ? amount * 1.609 : amount}
+                        onChange={onChange}
+                        disabled={isFlip}
+                    />
+                </div>
+                <div>
+                    <label htmlFor='miles'>Miles</label>
+                    <input
+                        id='miles'
+                        type='number'
+                        value={isFlip ? amount : amount / 1.609}
+                        onChange={onChange}
+                        disabled={!isFlip}
+                    />
+                </div>
+                <button onClick={reset}>reset</button>
+                <button onClick={onFlip}>{isFlip ? 'turn back' : 'chagne'}</button>
+            </div>
         );
     }
     function App () {
