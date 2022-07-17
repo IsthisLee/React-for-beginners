@@ -1,4 +1,4 @@
-import { useEffect, useState } from '@types/react';
+import { useEffect, useState } from 'react';
 import Movie from '../Components/Movie';
 
 function Home() {
@@ -28,6 +28,7 @@ function Home() {
               title={movie.title}
               summary={movie.summary}
               genres={movie.genres}
+              id={movie.id}
             />
           ))}
         </div>
